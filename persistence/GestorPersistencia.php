@@ -1,4 +1,5 @@
 <?php
+require_once "../model/Usuario.php";
 function getConnection(){
     $mysqli = new mysqli(
             "127.0.0.1",
@@ -17,3 +18,29 @@ function agregarAdministrador($email, $password){
     $conexion->query("INSERT INTO administradores (email, password) values('$email', '$password')");
     echo($conexion->error);
 }
+function isUserOk($usuario){
+    $email = $usuario->getEmail();
+    $password = password_hash($usuario->getPassword(), PASSWORD_DEFAULT);
+    $conexion = getConnection();
+    $sql = "SELECT * FROM administradores WHERE email='$email' and password='$password'";
+    echo($sql);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
