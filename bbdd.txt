@@ -1,0 +1,30 @@
+TABLAS:
+
+ADMINISTRADORES
+    - email  varchar2 (150) (pk)
+    - password varchar2 (20)
+
+CATEGORIAS
+    - id int PK AI
+    - nombre varchar2 (100)
+
+PRODUCTOS
+    - id int PK AI
+    - nombre varchar2 (100)
+    - stock int 3
+    - pvp float 6,2
+    - descripcion varchar2 (500)
+    - imagen varchar2 (600)
+    - idCategoria int FK
+
+VALORACIONES
+    - id int PK AI
+    - idProducto int FK
+    - valoracion
+
+
+
+
+
+
+    
