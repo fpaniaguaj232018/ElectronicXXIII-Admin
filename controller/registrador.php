@@ -12,4 +12,6 @@
     } else {
         //Registrar
         agregarAdministrador($email, $password);
+        header('Location: ../login.php');
+        die;
     }

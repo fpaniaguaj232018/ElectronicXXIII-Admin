@@ -20,10 +20,17 @@ function agregarAdministrador($email, $password){
 }
 function isUserOk($usuario){
     $email = $usuario->getEmail();
-    $password = password_hash($usuario->getPassword(), PASSWORD_DEFAULT);
     $conexion = getConnection();
-    $sql = "SELECT * FROM administradores WHERE email='$email' and password='$password'";
-    echo($sql);
+    $sql = "SELECT * FROM administradores WHERE email='$email'";
+    //$usuarios es cursor
+    $usuariosBBDD = $conexion->query($sql);
+    $usuarioBBDD = $usuariosBBDD->fetch_assoc();
+    if($usuarioBBDD!=NULL){
+        if(password_verify($usuario->getPassword(), $usuarioBBDD['password'])){
+            return true;
+        } 
+    } 
+    return false;
 }
 
 
