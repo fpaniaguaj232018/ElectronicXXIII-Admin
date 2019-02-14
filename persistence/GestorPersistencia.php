@@ -32,6 +32,21 @@ function isUserOk($usuario){
     } 
     return false;
 }
+function agregarProducto($idCategoria, $nombre, $pvp, $urlImagen){ 
+    $conexion = getConnection();
+    $sentencia = "INSERT INTO productos (idCategoria, nombre, pvp, imagen) "
+            . "values($idCategoria, '$nombre', $pvp, '$urlImagen')";
+    $conexion->query($sentencia);
+}
+function getProductosFromBBDD(){
+    $conexion = getConnection();
+    $sql = "SELECT * FROM productos";
+    $productos = $conexion->query($sql);
+    while ($producto = mysql_fetch_assoc($productos)) {
+        //Instanciar una clase producto por cada registro y 
+        //la guardamos en un array
+    }        
+}
 
 
 
