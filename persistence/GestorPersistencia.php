@@ -1,5 +1,7 @@
 <?php
 require_once "../model/Usuario.php";
+require_once "../model/Producto.php";
+
 function getConnection(){
     $mysqli = new mysqli(
             "127.0.0.1",
@@ -39,13 +41,22 @@ function agregarProducto($idCategoria, $nombre, $pvp, $urlImagen){
     $conexion->query($sentencia);
 }
 function getProductosFromBBDD(){
+    $listaProductos = [];
     $conexion = getConnection();
     $sql = "SELECT * FROM productos";
     $productos = $conexion->query($sql);
-    while ($producto = mysql_fetch_assoc($productos)) {
-        //Instanciar una clase producto por cada registro y 
-        //la guardamos en un array
-    }        
+    while ($producto = $productos->fetch_assoc()) {
+        $nuevoProducto = new Producto(
+            $producto['id'],
+            $producto['idCategoria'],
+            $producto['nombre'],
+            $producto['pvp'],
+            $producto['imagen']
+        );
+        $listaProductos[] = $nuevoProducto;
+    }
+    var_dump($listaProductos);
+    return $listaProductos;
 }
 
 

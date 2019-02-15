@@ -13,6 +13,7 @@ and open the template in the editor.
         <h1>ELECTRONIC XXIII</h1>
         <p>
             <a href="registro.php">Registrar</a>
+            <a href="controller/catalogoController.php">Catalogo</a>
         </p>
     </body>
 </html>
