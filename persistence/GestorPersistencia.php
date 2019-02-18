@@ -55,8 +55,14 @@ function getProductosFromBBDD(){
         );
         $listaProductos[] = $nuevoProducto;
     }
-    var_dump($listaProductos);
+    //var_dump($listaProductos);
     return $listaProductos;
+}
+
+function eliminarProductoFromBBDD($id){
+    $sql = "DELETE FROM productos WHERE id=$id";
+    $conexion = getConnection();
+    $conexion->query($sql);
 }
 
 

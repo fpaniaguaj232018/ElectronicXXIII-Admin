@@ -19,6 +19,7 @@ $productos = $_SESSION["productos"];
                         <th>Nombre</th>
                         <th>PVP</th>
                         <th>Imagen</th>
+                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,11 +27,12 @@ $productos = $_SESSION["productos"];
                     foreach ($productos as $producto) {
                     ?>
                     <tr>
-                        <td>2</td>
-                        <td>1</td>
+                        <td><?=$producto->getId()?></td>
+                        <td><?=$producto->getIdCategoria()?></td>
                         <td><?=$producto->getNombre()?></td>
-                        <td>8</td>
-                        <td><img width="100px" src="https://farm4.staticflickr.com/3207/2692501655_ee2ec2da5c_o.jpg"></a></td>
+                        <td><?=$producto->getPvp()?></td>
+                        <td><img width="100px" src="<?=$producto->getImagen()?>"></a></td>
+                        <td><a href="./controller/deleteController.php?id=<?=$producto->getId()?>"><img src="delete.png" width="30px"></a></td>
                     </tr>
                     <?php
                     }

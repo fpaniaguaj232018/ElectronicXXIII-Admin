@@ -4,6 +4,8 @@ function crearProducto($idCategoria, $nombre, $pvp, $urlImagen){
     agregarProducto($idCategoria, $nombre, $pvp, $urlImagen);
 }
 function getProductos(){
-    $productos = getProductosFromBBDD();
-    return $productos;
+    return getProductosFromBBDD();
+}
+function eliminarProducto($id){
+    eliminarProductoFromBBDD($id);
 }

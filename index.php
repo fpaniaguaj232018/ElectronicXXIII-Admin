@@ -1,19 +1,25 @@
+<?php
+    $mensaje = "";
+    if (isset($_GET["mensaje"])){
+        $mensaje = $_GET["mensaje"];
+    }
+?>
+
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
     </head>
     <body>
-        <h1>ELECTRONIC XXIII</h1>
-        <p>
-            <a href="registro.php">Registrar</a>
-            <a href="controller/catalogoController.php">Catalogo</a>
-        </p>
+        <?=$mensaje?><br>
+        <form method="POST" action="controller/validador.php">
+            <input type="email" name="email" id="email" placeholder="E-mail">
+            <br>
+            <input type="password" name="password" id="password" placeholder="Contraseña" size="100">
+            <br>
+            <input type="submit" value="Entrar">
+        </form>
+        <a href="registro.php">Registrarse</a>
     </body>
 </html>

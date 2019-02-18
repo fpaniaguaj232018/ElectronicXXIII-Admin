@@ -5,4 +5,3 @@ $productos = getProductos();
 $_SESSION["productos"]=$productos;
 header('Location: ../catalogo.php');
 die;
-
